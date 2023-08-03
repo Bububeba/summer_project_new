@@ -1,13 +1,9 @@
 # здесь подключаются модули
-import pygame
-from pygame.locals import *
 import sys
 from random import *
 from weapon import *
-from coin import *
 from enemy import *
 from main_hero import *
-from map import Room
 from save import *
 
 
