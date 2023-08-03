@@ -13,19 +13,19 @@ from save import Save
 
 
 def improvements(hero: Hero):
-    window_surface = pygame.display.set_mode((800, 600))
+    window_surface = pygame.display.set_mode((1000, 800))
 
-    background = pygame.Surface((800, 600))
+    background = pygame.Surface((1000, 800))
     background.fill(pygame.Color('orange'))
 
-    manager = pygame_gui.UIManager((800, 600))
+    manager = pygame_gui.UIManager((1000, 800))
 
-    max_hp_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((280, 275), (200, 100)),
-                                                 text='+max hp',
+    max_hp_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((400, 375), (200, 100)),
+                                                 text='+max hp(2)',
                                                  manager=manager)
 
-    speed_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((280, 175), (200, 100)),
-                                                text='+speed',
+    speed_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((400, 175), (200, 100)),
+                                                text='+speed(2)',
                                                 manager=manager)
 
     clock = pygame.time.Clock()
@@ -36,7 +36,6 @@ def improvements(hero: Hero):
         for event in pygame.event.get():
             if event.type == pygame.QUIT or event.type == pygame.KEYDOWN and event.key == pygame.K_TAB:
                 is_running = False
-                pygame.display.set_mode((1000, 800))
             if event.type == pygame_gui.UI_BUTTON_PRESSED:
                 if hero.coins_score > 1:
                     if event.ui_element == speed_button:
