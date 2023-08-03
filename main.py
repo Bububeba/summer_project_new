@@ -24,6 +24,7 @@ def game(is_load):
     BLACK = (0, 0, 0)
     WHITE = (255, 255, 255)
     RED   = (255, 0, 0)
+    BLUE  = (0, 0, 255)
 
 
 
@@ -247,12 +248,12 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
     #level_num = 0
     level_num = 0
     clear_rooms = 0
-    need_rooms = 1
+    need_rooms = 5
     room0 = Room(rrr[0], WIDTH, HEIGHT, 425, -50, -1, -1, -1, -1, -1, -1, 17, 16, level_num)
     room1 = Room(rrr[1], WIDTH, HEIGHT, 250, 0, -1, -1, -1, -1, 100, 500, 20, 14, level_num)
     room2 = Room(rrr[2], WIDTH, HEIGHT, -1, -1, 900, 250, 550, 600, -50, 250, 26, 12, level_num)
     room3 = Room(rrr[3], WIDTH, HEIGHT, 300, -50, 800, 550, -1, -1, -1, -1, 22, 16, level_num)
-    room4 = Room(rrr[4], WIDTH, HEIGHT, -1, -1, 900, 325, -1, -1, 350, 125, 26, 7, level_num)
+    room4 = Room(rrr[4], WIDTH, HEIGHT, -1, -1, 900, 325, -1, -1, -50, 325, 26, 7, level_num)
     room5 = Room(rrr[5], WIDTH, HEIGHT, -1, -1, -1, -1, 375, 600, -25, 200, 25, 12, level_num)
     rooms = [room0, room1, room2, room3, room4, room5]
     rooms_u = [1, 3]
@@ -263,14 +264,14 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
 
     # rooms[room_num].room_draw(screen, WIDTH, HEIGHT, rooms[room_num].room_w/50, rooms[room_num].room_h/50)
 
-    Main_Hero = Hero(500, 655, 'sprites\move_right_1.png', 1, 0, 20)
+    Main_Hero = Hero(500, 655, 'sprites\move_right_1.png', 100, 0, 20)
 
     killed_enemy= 0
     fake_coins = Main_Hero.coins_score
     sum_time = 0
     runs = 1
 
-    weapon = Weapon(Main_Hero.rect.centerx + 33, Main_Hero.rect.centery - 10, 'sprites\scythe3.png', "Main_Hero", 100000000, 300, 1)
+    weapon = Weapon(Main_Hero.rect.centerx + 33, Main_Hero.rect.centery - 10, 'sprites\scythe3.png', "Main_Hero", 100, 300, 1)
     center = weapon.rect.center
     weapon.rect = weapon.image.get_rect(center = center)
 
@@ -426,8 +427,8 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
         if enemy_count > 0 and  pygame.time.get_ticks() >= spawn_time:
             # print(enemy_count, "ADD")
             Cross(
-                randint(WIDTH  // 2 - rooms[room_num].room_w // 2 + 100, WIDTH  // 2 + rooms[room_num].room_w // 2 - 50),
-                randint(HEIGHT // 2 - rooms[room_num].room_h // 2 + 100, HEIGHT // 2 + rooms[room_num].room_h // 2 - 50),
+                randint(WIDTH  // 2 - rooms[room_num].room_w // 2 + 400, WIDTH  // 2 + rooms[room_num].room_w // 2 - 400),
+                randint(HEIGHT // 2 - rooms[room_num].room_h // 2 + 150, HEIGHT // 2 + rooms[room_num].room_h // 2 - 150),
                 'sprites\cross_1.png',  pygame.time.get_ticks(), crosses)
 
             enemy_count -= 1
@@ -443,7 +444,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
             rooms[room_num].gates.clear()
 
             if rooms[room_num].portal1_x != -1:
-                pygame.draw.rect(screen, RED, pygame.Rect(*rooms[room_num].rect1.topleft, 150, 150), 1)
+                pygame.draw.rect(screen, BLUE, pygame.Rect(*rooms[room_num].rect1.topleft, 150, 150), 1)
                 pygame.display.update()
                 # pygame.draw.rect(screen, RED, pygame.Rect(*x.rect.topleft,  x.image.get_width(), x.image.get_height()), 1)
                 if rooms[room_num].rect1.collidepoint(*Main_Hero.rect.center):
@@ -477,7 +478,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
                         room_num = random.choice(rooms_d)
                         Main_Hero.x = rooms[room_num].rect3.centerx
                         Main_Hero.y = rooms[room_num].rect3.top - 100
-                        max_enemy =  randint(0, 7)
+                        max_enemy =  randint(0, 1)
                         clear_rooms += 1
                     coins.empty()
                     enemy_count = max_enemy
@@ -492,7 +493,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
 
 
             if rooms[room_num].portal2_x != -1:
-                pygame.draw.rect(screen, RED, pygame.Rect(*rooms[room_num].rect2.topleft, 150, 150), 1)
+                pygame.draw.rect(screen, BLUE, pygame.Rect(*rooms[room_num].rect2.topleft, 150, 150), 1)
                 pygame.display.update()
                 # if pygame.Rect.colliderect(Main_Hero.rect, rooms[room_num].rect2):
                 if rooms[room_num].rect2.collidepoint(*Main_Hero.rect.center):
@@ -526,7 +527,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
                         room_num = random.choice(rooms_l)
                         Main_Hero.x = rooms[room_num].rect4.right + 100
                         Main_Hero.y = rooms[room_num].rect4.centery
-                        max_enemy =  randint(0, 7)
+                        max_enemy =  randint(0, 1)
                         clear_rooms += 1
                     cnt = 0
                     coins.empty()
@@ -541,7 +542,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
 
 
             if rooms[room_num].portal3_x != -1:
-                pygame.draw.rect(screen, RED, pygame.Rect(*rooms[room_num].rect3.topleft, 150, 150), 1)
+                pygame.draw.rect(screen, BLUE, pygame.Rect(*rooms[room_num].rect3.topleft, 150, 150), 1)
                 pygame.display.update()
                 # if pygame.Rect.colliderect(Main_Hero.rect, rooms[room_num].rect3):
                 if rooms[room_num].rect3.collidepoint(*Main_Hero.rect.center):
@@ -575,7 +576,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
                         room_num = random.choice(rooms_u)
                         Main_Hero.x = rooms[room_num].rect1.centerx
                         Main_Hero.y = rooms[room_num].rect1.bottom + 100
-                        max_enemy =  randint(0, 7)
+                        max_enemy =  randint(0, 1)
                         clear_rooms += 1
                     coins.empty()
                     enemy_count = max_enemy
@@ -590,7 +591,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
 
 
             if rooms[room_num].portal4_x != -1:
-                pygame.draw.rect(screen, RED, pygame.Rect(*rooms[room_num].rect4.topleft, 150, 150), 1)
+                pygame.draw.rect(screen, BLUE, pygame.Rect(*rooms[room_num].rect4.topleft, 150, 150), 1)
                 pygame.display.update()
                 # if pygame.Rect.colliderect(Main_Hero.rect, rooms[room_num].rect4):
                 if rooms[room_num].rect4.collidepoint(*Main_Hero.rect.center):
@@ -624,7 +625,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
                         room_num = random.choice(rooms_r)
                         Main_Hero.x = rooms[room_num].rect2.left - 100
                         Main_Hero.y = rooms[room_num].rect2.centery
-                        max_enemy =  randint(0, 7)
+                        max_enemy =  randint(0, 1)
                         clear_rooms += 1
                     coins.empty()
                     enemy_count = max_enemy
@@ -731,8 +732,8 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
             screen.blit(text2, (0, 150))
 
             MENU_MOUSE_POS = pygame.mouse.get_pos()
-            RESPAWN_BUTTON = Button(image=pygame.image.load("images/move_right_1.png"), pos=(140, 300),
-                                    text_input="RESTART", font=pygame.font.Font("fonts\\Pixeloza03.ttf", 120),
+            RESPAWN_BUTTON = Button(image=pygame.image.load("images/b2_fon.png"), pos=(WIDTH//2, 700),
+                                    text_input="RESTART", font=pygame.font.Font("fonts\\better-vcr_0.ttf", 80),
                                     base_color="white", hovering_color="green")
             for button in [RESPAWN_BUTTON]:
                 button.changeColor(MENU_MOUSE_POS)

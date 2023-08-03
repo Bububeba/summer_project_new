@@ -17,8 +17,8 @@ class Enemy(pygame.sprite.Sprite):
         self.x = x
         self.y = y
         self.range = 100  
-        self.move_x = random.randrange(300, 550)
-        self.move_y = random.randrange(300, 550)
+        self.move_x = random.randrange(500, 600)
+        self.move_y = random.randrange(300, 600)
         self.image = pygame.image.load(filename)
         self.rect = self.image.get_rect(center = (x, y))
         self.room = room
@@ -41,8 +41,8 @@ class Enemy(pygame.sprite.Sprite):
                 self.is_see = True
 
             if self.rect.collidepoint((self.move_x, self.move_y)):
-                self.move_x = random.randint(1000//2 - self.room.room_w // 2 + 50, 1000//2 + self.room.room_w // 2 - 50)
-                self.move_y = random.randint( 800//2 - self.room.room_h // 2 + 50,  800//2 + self.room.room_h // 2 - 50)
+                self.move_x = random.randint(1000//2 - self.room.room_w // 2 + 250, 1000//2 + self.room.room_w // 2 - 250)
+                self.move_y = random.randint( 800//2 - self.room.room_h // 2 + 150,  800//2 + self.room.room_h // 2 - 150)
 
             if self.is_see:
                 self.move_to(Main_Hero.x, Main_Hero.y)
