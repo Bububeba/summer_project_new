@@ -1,6 +1,4 @@
-import pygame
 from coin import *
-import random
 
 
 class Weapon(pygame.sprite.Sprite):
@@ -23,13 +21,11 @@ class Weapon(pygame.sprite.Sprite):
                 item.hp -= self.damage
                 item.last_attacked = cur_time
             self.last_attack = cur_time
-            
-
 
     def __str__(self):
-        return (str(self.name)+
+        return (str(self.name) +
                 "\nDamage:\t" + str(self.damage) +
-                "\nRange :\t" + str(self.range)  +
+                "\nRange :\t" + str(self.range) +
                 "\n")
 
 
