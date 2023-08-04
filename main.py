@@ -311,8 +311,8 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
     sum_time = 0
     runs = 1
 
-    weapon = Weapon(Main_Hero.rect.centerx + 33, Main_Hero.rect.centery - 10, 'sprites\\scythe3.png', "Main_Hero", 100,
-                    300, 1)
+    weapon = Weapon(Main_Hero.rect.centerx + 33, Main_Hero.rect.centery - 10, 'sprites\\scythe3.png', "Main_Hero", 50,
+                    150, 1)
     center = weapon.rect.center
     weapon.rect = weapon.image.get_rect(center=center)
 
@@ -478,8 +478,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
             # print(enemy_count, "ADD")
             Cross(
                 randint(WIDTH // 2 - rooms[room_num].room_w // 2 + 400, WIDTH // 2 + rooms[room_num].room_w // 2 - 400),
-                randint(HEIGHT // 2 - rooms[room_num].room_h // 2 + 150,
-                        HEIGHT // 2 + rooms[room_num].room_h // 2 - 150),
+                randint(HEIGHT // 2 - rooms[room_num].room_h // 2 + 150, HEIGHT // 2 + rooms[room_num].room_h // 2 - 150),
                 'sprites\\cross_1.png', pygame.time.get_ticks(), crosses)
 
             enemy_count -= 1
@@ -530,7 +529,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
                         room_num = random.choice(rooms_d)
                         Main_Hero.x = rooms[room_num].rect3.centerx
                         Main_Hero.y = rooms[room_num].rect3.top - 100
-                        max_enemy = randint(0, 1)
+                        max_enemy = randint(2, 7)
                         clear_rooms += 1
                     coins.empty()
                     enemy_count = max_enemy
@@ -578,7 +577,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
                         room_num = random.choice(rooms_l)
                         Main_Hero.x = rooms[room_num].rect4.right + 100
                         Main_Hero.y = rooms[room_num].rect4.centery
-                        max_enemy = randint(0, 1)
+                        max_enemy = randint(2, 7)
                         clear_rooms += 1
                     cnt = 0
                     coins.empty()
@@ -626,7 +625,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
                         room_num = random.choice(rooms_u)
                         Main_Hero.x = rooms[room_num].rect1.centerx
                         Main_Hero.y = rooms[room_num].rect1.bottom + 100
-                        max_enemy = randint(0, 1)
+                        max_enemy = randint(2, 7)
                         clear_rooms += 1
                     coins.empty()
                     enemy_count = max_enemy
@@ -674,7 +673,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
                         room_num = random.choice(rooms_r)
                         Main_Hero.x = rooms[room_num].rect2.left - 100
                         Main_Hero.y = rooms[room_num].rect2.centery
-                        max_enemy = randint(0, 1)
+                        max_enemy = randint(2, 7)
                         clear_rooms += 1
                     coins.empty()
                     enemy_count = max_enemy
@@ -733,7 +732,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
         screen.blit(weapon.image, (weapon.rect[0], weapon.rect[1] - 30 + animcount // 6))
         enemys.draw(screen)
 
-        font = pygame.font.SysFont('couriernew', int(40))
+        font = pygame.font.Font("fonts\\better-vcr_0.ttf", int(30))
         text1 = font.render(str("HP: " + str(Main_Hero.hp)), True, WHITE)
         text2 = font.render(str("Coins: " + str(Main_Hero.coins_score)), True, WHITE)
 
@@ -764,10 +763,11 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
             text0 = font.render("TIME: " + str(end_time / 1000 - sum_time / 1000), True, WHITE)
             text1 = font.render("ENEMIES KILLED: " + str(killed_enemy), True, WHITE)
             text2 = font.render("OBOLS COLLECTED: " + str(Main_Hero.coins_score - fake_coins), True, WHITE)
-            screen.blit(text, (0, 0))
-            screen.blit(text0, (0, 50))
-            screen.blit(text1, (0, 100))
-            screen.blit(text2, (0, 150))
+            screen.blit(pygame.image.load('images\\gradient.png'), (0, 0))
+            screen.blit(text, (WIDTH // 2 - 100 , 10))
+            screen.blit(text0, (10, 110))
+            screen.blit(text1, (10, 185))
+            screen.blit(text2, (10, 260))
 
             MENU_MOUSE_POS = pygame.mouse.get_pos()
             RESPAWN_BUTTON = Button(image=pygame.image.load("images/b2_fon.png"), pos=(WIDTH // 2, 700),

@@ -6,6 +6,9 @@ SCREEN = pygame.display.set_mode((1000, 800))
 pygame.display.set_caption("Menu")
 
 BG = pygame.image.load("images/background.png")
+mus = "music\\main_menu.mp3"
+pygame.mixer.music.load(mus)
+pygame.mixer.music.play(-1)
 
 
 def get_font(size):  # Returns Press-Start-2P in the desired size
@@ -40,6 +43,7 @@ def main_menu():
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if PLAY_BUTTON.checkForInput(MENU_MOUSE_POS):
+                    pygame.mixer.music.stop()
                     game(0)
                 if CONTINUE_BUTTON.checkForInput(MENU_MOUSE_POS):
                     game(1)
