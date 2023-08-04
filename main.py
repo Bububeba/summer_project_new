@@ -461,9 +461,10 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
             clear_rooms = 0
             while (cnt < 100):
                 # screen.blit(Rect(screen, RED, pygame.Rect(0, 0, 1000, 1000), 1), (0, 0))
-                font = pygame.font.SysFont('couriernew', int(70))
-                text = font.render("ВЫ МЕРТВЫ", True, WHITE)
-                screen.blit(text, (0, 0))
+                # pygame.draw.rect(screen, BLACK, pygame.Rect(0, 350, 1000, 100))
+                font = pygame.font.Font("fonts\\Zlusa _font.ttf", int(75))
+                text = font.render("ВЫ МЕРТВЫ", True, (130, 17, 245))
+                screen.blit(text, (350, 355))
                 pygame.display.flip()
                 cnt += 1
                 clock.tick(20)
@@ -495,15 +496,15 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
             save.update(Main_Hero, level_num, room_num, clear_rooms)
 
             if rooms[room_num].portal1_x != -1:
-                pygame.draw.rect(screen, BLUE, pygame.Rect(*rooms[room_num].rect1.topleft, 150, 150), 1)
-                pygame.display.update()
+                # pygame.draw.rect(screen, BLUE, pygame.Rect(*rooms[room_num].rect1.topleft, 150, 150), 1)
+                # pygame.display.update()
                 # pygame.draw.rect(screen, RED, pygame.Rect(*x.rect.topleft,  x.image.get_width(), x.image.get_height()), 1)
                 if rooms[room_num].rect1.collidepoint(*Main_Hero.rect.center):
                     killed_enemy += max_enemy
                     if clear_rooms == need_rooms:
                         room_num = 0
                         Main_Hero.x = 500
-                        Main_Hero.y = 655
+                        Main_Hero.y = 555
                         level_num += 1
                         clear_rooms = 0
                         max_enemy = 0
@@ -543,15 +544,15 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
                     rooms[room_last].is_clear = False
 
             if rooms[room_num].portal2_x != -1:
-                pygame.draw.rect(screen, BLUE, pygame.Rect(*rooms[room_num].rect2.topleft, 150, 150), 1)
-                pygame.display.update()
+                # pygame.draw.rect(screen, BLUE, pygame.Rect(*rooms[room_num].rect2.topleft, 150, 150), 1)
+                # pygame.display.update()
                 # if pygame.Rect.colliderect(Main_Hero.rect, rooms[room_num].rect2):
                 if rooms[room_num].rect2.collidepoint(*Main_Hero.rect.center):
                     killed_enemy += max_enemy
                     if clear_rooms == need_rooms:
                         room_num = 0
                         Main_Hero.x = 500
-                        Main_Hero.y = 655
+                        Main_Hero.y = 555
                         level_num += 1
                         clear_rooms = 0
                         max_enemy = 0
@@ -591,15 +592,15 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
                     rooms[room_last].is_clear = False
 
             if rooms[room_num].portal3_x != -1:
-                pygame.draw.rect(screen, BLUE, pygame.Rect(*rooms[room_num].rect3.topleft, 150, 150), 1)
-                pygame.display.update()
+                # pygame.draw.rect(screen, BLUE, pygame.Rect(*rooms[room_num].rect3.topleft, 150, 150), 1)
+                # pygame.display.update()
                 # if pygame.Rect.colliderect(Main_Hero.rect, rooms[room_num].rect3):
                 if rooms[room_num].rect3.collidepoint(*Main_Hero.rect.center):
                     killed_enemy += max_enemy
                     if clear_rooms == need_rooms:
                         room_num = 0
                         Main_Hero.x = 500
-                        Main_Hero.y = 655
+                        Main_Hero.y = 555
                         level_num += 1
                         clear_rooms = 0
                         max_enemy = 0
@@ -639,15 +640,15 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
                     rooms[room_last].is_clear = False
 
             if rooms[room_num].portal4_x != -1:
-                pygame.draw.rect(screen, BLUE, pygame.Rect(*rooms[room_num].rect4.topleft, 150, 150), 1)
-                pygame.display.update()
+                # pygame.draw.rect(screen, BLUE, pygame.Rect(*rooms[room_num].rect4.topleft, 150, 150), 1)
+                # pygame.display.update()
                 # if pygame.Rect.colliderect(Main_Hero.rect, rooms[room_num].rect4):
                 if rooms[room_num].rect4.collidepoint(*Main_Hero.rect.center):
                     killed_enemy += max_enemy
                     if clear_rooms == need_rooms:
                         room_num = 0
                         Main_Hero.x = 500
-                        Main_Hero.y = 655
+                        Main_Hero.y = 555
                         level_num += 1
                         clear_rooms = 0
                         max_enemy = 0
@@ -739,30 +740,30 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
         screen.blit(text1, (0, 0))
         screen.blit(text2, (0, 50))
 
-        pygame.draw.rect(screen, RED,
-                         pygame.Rect(rooms[room_num].x_offset, rooms[room_num].y_offset, rooms[room_num].room_w,
-                                     rooms[room_num].room_h), 1)
+        # pygame.draw.rect(screen, RED,
+        #                  pygame.Rect(rooms[room_num].x_offset, rooms[room_num].y_offset, rooms[room_num].room_w,
+        #                              rooms[room_num].room_h), 1)
 
-        pygame.draw.rect(screen, RED, pygame.Rect(*Main_Hero.rect.topleft, 100, 100), 1)
-        pygame.draw.rect(screen, RED, pygame.Rect(*Main_Hero.range.rect.topleft, Main_Hero.range.image.get_width(),
-                                                  Main_Hero.range.image.get_height()), 1)
+        # pygame.draw.rect(screen, RED, pygame.Rect(*Main_Hero.rect.topleft, 100, 100), 1)
+        # pygame.draw.rect(screen, RED, pygame.Rect(*Main_Hero.range.rect.topleft, Main_Hero.range.image.get_width(),
+        #                                           Main_Hero.range.image.get_height()), 1)
 
-        for x in rooms[room_num].tiles:
-            pygame.draw.rect(screen, RED, pygame.Rect(*x.rect.topleft, x.image.get_width(), x.image.get_height()), 1)
+        # for x in rooms[room_num].tiles:
+        #     pygame.draw.rect(screen, RED, pygame.Rect(*x.rect.topleft, x.image.get_width(), x.image.get_height()), 1)
 
-        for x in enemys:
-            pygame.draw.rect(screen, RED, pygame.Rect(*x.rect.topleft, x.image.get_width(), x.image.get_height()), 1)
-            pygame.draw.circle(screen, RED, x.rect.center, x.range, 1)
+        # for x in enemys:
+        #     pygame.draw.rect(screen, RED, pygame.Rect(*x.rect.topleft, x.image.get_width(), x.image.get_height()), 1)
+        #     pygame.draw.circle(screen, RED, x.rect.center, x.range, 1)
 
         if end_game:
             screen.fill(BLACK)
             coins.empty()
             enemys.empty()
-            font = pygame.font.SysFont('couriernew', int(70))
-            text = font.render("ЗАБЕГ №" + str(runs), True, WHITE)
-            text0 = font.render("ВРЕМЯ: " + str(end_time / 1000 - sum_time / 1000), True, WHITE)
-            text1 = font.render("ВРАГОВ УБИТО: " + str(killed_enemy), True, WHITE)
-            text2 = font.render("МОНЕТ СОБРАНО: " + str(Main_Hero.coins_score - fake_coins), True, WHITE)
+            font = pygame.font.Font("fonts\\better-vcr_0.ttf", int(50))
+            text = font.render("RUN №" + str(runs), True, WHITE)
+            text0 = font.render("TIME: " + str(end_time / 1000 - sum_time / 1000), True, WHITE)
+            text1 = font.render("ENEMIES KILLED: " + str(killed_enemy), True, WHITE)
+            text2 = font.render("OBOLS COLLECTED: " + str(Main_Hero.coins_score - fake_coins), True, WHITE)
             screen.blit(text, (0, 0))
             screen.blit(text0, (0, 50))
             screen.blit(text1, (0, 100))
@@ -770,8 +771,8 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
 
             MENU_MOUSE_POS = pygame.mouse.get_pos()
             RESPAWN_BUTTON = Button(image=pygame.image.load("images/b2_fon.png"), pos=(WIDTH // 2, 700),
-                                    text_input="RESTART", font=pygame.font.Font("fonts\\better-vcr_0.ttf", 80),
-                                    base_color="white", hovering_color="green")
+                                    text_input = "TO THE SURFACE", font=pygame.font.Font("fonts\\better-vcr_0.ttf", 80),
+                                    base_color = "white", hovering_color = (130, 17, 245))
             for button in [RESPAWN_BUTTON]:
                 button.changeColor(MENU_MOUSE_POS)
                 button.update(screen)

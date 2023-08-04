@@ -18,15 +18,15 @@ def main_menu():
 
         MENU_MOUSE_POS = pygame.mouse.get_pos()
 
-        MENU_TEXT = get_font(50).render("MAIN MENU", True, "#b68f40")
-        MENU_RECT = MENU_TEXT.get_rect(center=(200, 100))
+        # MENU_TEXT = get_font(50).render("MAIN MENU", True, "#b68f40")
+        # MENU_RECT = MENU_TEXT.get_rect(center = (200, 100))
 
-        PLAY_BUTTON = Button(image=pygame.image.load("images/b1_fon.png"), pos=(170, 500),
-                             text_input="PLAY", font=get_font(80), base_color="white", hovering_color=(130, 17, 245))
-        CONTINUE_BUTTON = Button(image=pygame.image.load("images/b2_fon.png"), pos=(290, 600),
-                                 text_input="CONTINUE", font=get_font(80), base_color="white", hovering_color=(130, 17, 245))
-        QUIT_BUTTON = Button(image=pygame.image.load("images/b3_fon.png"), pos=(170, 700),
-                             text_input="QUIT", font=get_font(80), base_color="white", hovering_color=(130, 17, 245))
+        PLAY_BUTTON = Button(image = pygame.image.load("images/b1_fon.png"), pos = (290, 500),
+                             text_input = "NEW GAME", font=get_font(80), base_color="white", hovering_color = (130, 17, 245))
+        CONTINUE_BUTTON = Button(image = pygame.image.load("images/b2_fon.png"), pos = (290, 600),
+                                 text_input = "CONTINUE", font = get_font(80), base_color = "white", hovering_color = (130, 17, 245))
+        QUIT_BUTTON = Button(image = pygame.image.load("images/b3_fon.png"), pos = (170, 700),
+                             text_input="QUIT", font = get_font(80), base_color = "white", hovering_color = (130, 17, 245))
 
         # SCREEN.blit(MENU_TEXT, MENU_RECT)
 
