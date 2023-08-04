@@ -174,3 +174,16 @@ poetry.toml
 pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python
+__pycache__/weapon.cpython-39.pyc
+__pycache__/tiles.cpython-39.pyc
+__pycache__/save.cpython-39.pyc
+__pycache__/map_test.cpython-39.pyc
+__pycache__/map_test.cpython-311.pyc
+__pycache__/map.cpython-39.pyc
+__pycache__/main_hero.cpython-39.pyc
+__pycache__/main.cpython-39.pyc
+__pycache__/enemy.cpython-39.pyc
+__pycache__/coin.cpython-39.pyc
+__pycache__/button.cpython-39.pyc
+.idea/summer_project.iml
+.idea/misc.xml
