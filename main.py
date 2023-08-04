@@ -20,8 +20,8 @@ def improvements(hero: Hero):
 
     manager = pygame_gui.UIManager((1000, 800))
 
-    max_hp_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((400, 375), (200, 100)),
-                                                 text='+max hp(2)',
+    range_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((400, 375), (200, 100)),
+                                                 text='+range(2)',
                                                  manager=manager)
 
     speed_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((400, 175), (200, 100)),
@@ -42,9 +42,9 @@ def improvements(hero: Hero):
                         hero.coins_score -= 2
                         hero.speed += 0.4
 
-                    if event.ui_element == max_hp_button:
+                    if event.ui_element == range_button:
                         hero.coins_score -= 2
-                        hero.max_hp += 10
+                        hero.weapon.range += 10
 
             manager.process_events(event)
 
