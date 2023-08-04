@@ -9,7 +9,7 @@ BG = pygame.image.load("images/background.png")
 mus = "music\\main_menu.mp3"
 pygame.mixer.music.load(mus)
 pygame.mixer.music.play(-1)
-
+0
 
 def get_font(size):  # Returns Press-Start-2P in the desired size
     return pygame.font.Font("fonts\\better-vcr_0.ttf", size)

@@ -8,7 +8,7 @@ class Save:
             'start_x': hero.x,
             'start_y': hero.y,
             'coins': hero.coins_score,
-            'max_hp': hero.max_hp,
+            'range': hero.weapon.range,
             'hp': hero.hp,
             'speed': hero.speed,
             'level': curr_level_index,
@@ -24,7 +24,7 @@ class Save:
             'start_x': hero.x,
             'start_y': hero.y,
             'coins': hero.coins_score,
-            'max_hp': hero.max_hp,
+            'range': hero.weapon.range,
             'hp': hero.hp,
             'speed': hero.speed,
             'level': curr_level_index,
@@ -36,7 +36,7 @@ class Save:
     def get_data(self):
         load_data = self.file['Info']
         return load_data['start_x'], load_data['start_y'], load_data['coins'], \
-            load_data['max_hp'], load_data['hp'], load_data['speed'], load_data['level'], load_data['room'],\
+            load_data['range'], load_data['hp'], load_data['speed'], load_data['level'], load_data['room'],\
             load_data['need_rooms']
 
     def __del__(self):

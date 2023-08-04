@@ -344,7 +344,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
     save = Save(Main_Hero, level_num, room_num, need_rooms)
 
     if is_load:
-        Main_Hero.x, Main_Hero.y, Main_Hero.coins_score, Main_Hero.max_hp, \
+        Main_Hero.x, Main_Hero.y, Main_Hero.coins_score, Main_Hero.weapon.range, \
             Main_Hero.hp, Main_Hero.speed, level_num, room_num, clear_rooms = save.get_data()
 
     pygame.mixer.music.load(battle_music[level_num])
