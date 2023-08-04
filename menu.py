@@ -9,7 +9,7 @@ BG = pygame.image.load("images/background.png")
 mus = "music\\main_menu.mp3"
 pygame.mixer.music.load(mus)
 pygame.mixer.music.play(-1)
-0
+
 
 def get_font(size):  # Returns Press-Start-2P in the desired size
     return pygame.font.Font("fonts\\better-vcr_0.ttf", size)
@@ -21,17 +21,14 @@ def main_menu():
 
         MENU_MOUSE_POS = pygame.mouse.get_pos()
 
-        # MENU_TEXT = get_font(50).render("MAIN MENU", True, "#b68f40")
-        # MENU_RECT = MENU_TEXT.get_rect(center = (200, 100))
-
-        PLAY_BUTTON = Button(image = pygame.image.load("images/b1_fon.png"), pos = (290, 500),
-                             text_input = "NEW GAME", font=get_font(80), base_color="white", hovering_color = (130, 17, 245))
-        CONTINUE_BUTTON = Button(image = pygame.image.load("images/b2_fon.png"), pos = (290, 600),
-                                 text_input = "CONTINUE", font = get_font(80), base_color = "white", hovering_color = (130, 17, 245))
-        QUIT_BUTTON = Button(image = pygame.image.load("images/b3_fon.png"), pos = (170, 700),
-                             text_input="QUIT", font = get_font(80), base_color = "white", hovering_color = (130, 17, 245))
-
-        # SCREEN.blit(MENU_TEXT, MENU_RECT)
+        PLAY_BUTTON = Button(image=pygame.image.load("images/b1_fon.png"), pos=(290, 500),
+                             text_input="NEW GAME", font=get_font(80), base_color="white",
+                             hovering_color=(130, 17, 245))
+        CONTINUE_BUTTON = Button(image=pygame.image.load("images/b2_fon.png"), pos=(290, 600),
+                                 text_input="CONTINUE", font=get_font(80), base_color="white",
+                                 hovering_color=(130, 17, 245))
+        QUIT_BUTTON = Button(image=pygame.image.load("images/b3_fon.png"), pos=(170, 700),
+                             text_input="QUIT", font=get_font(80), base_color="white", hovering_color=(130, 17, 245))
 
         for button in [PLAY_BUTTON, CONTINUE_BUTTON, QUIT_BUTTON]:
             button.changeColor(MENU_MOUSE_POS)
@@ -51,8 +48,6 @@ def main_menu():
                     pygame.quit()
                     sys.exit()
 
-
-        
         pygame.display.update()
 
 

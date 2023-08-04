@@ -28,7 +28,7 @@ class Enemy(pygame.sprite.Sprite):
     def update(self, animcount, enemy_anim, Main_Hero, current_time, room, coins):
 
         if self.hp <= 0:
-            Coin(self.x, self.y, 'sprites\coin_1.png', coins)
+            Coin(self.x, self.y, 'sprites\\coin_1.png', coins)
             room.kills_cnt += 1
             self.kill()
 
@@ -85,6 +85,5 @@ class Cross(pygame.sprite.Sprite):
         self.image = cross_anim[animcount // 5]
         if current_time - self.time_create >= 2000:
             self.kill()
-            Enemy(self.x, self.y, 'sprites\enemy_1.png',
+            Enemy(self.x, self.y, 'sprites\\enemy_1.png',
                   hp, damage, speed, 1, enemys, room)
-
